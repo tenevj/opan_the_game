@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dragon Warriors Game</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Dragon Warriors</h1>
+        <div class="stats">
+            <div>Health: <span id="health">20</span></div>
+            <div>Attack: <span id="attack">8</span></div>
+            <div>Defense: <span id="defense">10</span></div>
+            <div>Armor Class: <span id="armor">5</span></div>
+        </div>
+        <canvas id="gameCanvas" class="game-canvas" width="800" height="600"></canvas>
+    </div>
+    <script src="{{ url_for('static', filename='game.js') }}"></script>
+</body>
+</html>
