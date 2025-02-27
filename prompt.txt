@@ -1,0 +1,40 @@
+i want to create working skeleton of a d2 diablo-like game with the basic combat logic from Dave Morris' Dragon warriors series (classic D&D style rpg). i consider uploading it on python anywhere with flask, use pygame for the graphics engine. ask me a follow up question bewfore start i think game logic is something i can handle myself, i probably need more help with the setup of the game basic server/gameplay settings, such as login, multiplayer, and gameplay (combat interface)
+1) i want to implement both elements - real time and turn based, for differnt parts of the game. 2) all 3) click to move but respect a hex grid coordinate system (a hexagon has 6 adjacent hexagons). i want to use pygame as the engine and the game to be a flask app
+real time is for open world movement and player vs player interactions. turn based is for player versus NPC combat.
+please stick to python only, wherever possible.
+we can use flask. it uses requirements.txt where you can add libraries such as pygame
+ i will deploy to pythonanywhere which should use the resources such as processing power
+ lets use, for start, the following stats from the Dragon Warriors fight system: weapon and damage (dX, Y - where X is the dice rolled for armo bypass roll (ABR) with this weapon, Y is the damage, use d8, 4 as default = d8 for ABR, and 4 points of damage) attack 13, defence 7, damage (flat 4 points dmg), health 12, armor class 5. d20 for the hit mechanic (1 always hits, 20 always misses), armor bypass roll - dX where X is the number of the sides of the dice corresponding to the dX of the weapon used by the player, corresponding d size for armor bypass roll. i'll add more later. lets start with a player character freely moving (on free adjacent tiles, that is not occupied by another entity - in this case - a moving enemy NPC.
+
+ I want to use pythonanywhere or github or huggingface (preffer github before huggingface) as my environment that will store and run the code and use its own processing powers. 
+ the first interaction is gonna be a register/login page, after register and or login the user will see a red dot in a hex grid, that can be moved with mouse clicks only on adjacent hexagons (might highlight possible moves somehow)
+use pythonanywhere resources wherever its convinient - simplicity is king
+game state persistence should be after each move
+players should be able to see other players in real-time on the same map
+hex size: 50px
+viewport - about 800x600
+keep combats on the same map
+visualize the dice rolls and combat calculations in a text outside the game map
+use your best guess, whenever you need further information - i will take your approach as correct
+implement everything needed for a game skeleton. do your best guess and dont ask me for detail - i will update them later myself. i want a working game skeleton as a result
+
+
+
+the files i uploaded are stored on pythonanywhere, they are structured like this:
+app.py and game_logic.py and requirements.py are on the root directory, https://www.pythonanywhere.com/user/undeddo/files/home/undeddo/mysite
+the rest of the files are in these  direcotories:
+static, game, models, templates.
+the https://www.pythonanywhere.com/user/undeddo/files/var/www/undeddo_pythonanywhere_com_wsgi.py?edit is this
+import sys
+
+# Add your project directory to the sys.path
+project_home = '/home/undeddo/mysite'  # Path to your project directory
+if project_home not in sys.path:
+    sys.path = [project_home] + sys.path
+
+# Import the Flask app but call it "application" for WSGI to work
+from app import app as application  # Replace 'app' with the correct filename
+something is wrong, i got this message on the website
+Internal Server Error
+The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application.
+help me ensure everything is located on the right place and the setup is correct
